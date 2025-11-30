@@ -32,3 +32,4 @@ cmake-build-*/
 *.apk
 *.aab
 .kotlin/
+gradle.properties

@@ -56,7 +56,25 @@ SUPABASE_SERVICE_ROLE_KEY=tu-service-role-key
 2. Ve a Settings → API
 3. Copia `URL`, `anon/public key` y `service_role key`
 
-### 3. Configurar la base de datos
+### 3. Configuración Adicional (`gradle.properties`)
+
+El archivo `gradle.properties` se utiliza para configuraciones del build de Gradle que pueden variar entre entornos de desarrollo (por ejemplo, para ajustar el rendimiento de Gradle). Este archivo no debe ser incluido en el control de versiones.
+
+Para configuraciones específicas de tu entorno, puedes crear un archivo `gradle.properties` en la raíz del proyecto.
+
+**Ejemplo de `gradle.properties`:**
+
+```properties
+# Aumenta la memoria disponible para el proceso de Gradle
+org.gradle.jvmargs=-Xmx4g
+
+# Habilita el caché de configuración para acelerar los builds
+org.gradle.caching=true
+```
+
+> **⚠️ IMPORTANTE:** Este archivo ya está ignorado en `.gitignore` para proteger configuraciones locales.
+
+### 4. Configurar la base de datos
 
 Ejecuta los scripts SQL en tu instancia de Supabase en el siguiente orden:
 
@@ -74,7 +92,7 @@ O ejecuta el script completo:
 database/SQL_supabase.sql  # Script completo con todas las tablas
 ```
 
-### 4. Compilar el proyecto
+### 5. Compilar el proyecto
 
 Navega al directorio de la app y compila:
 
@@ -83,7 +101,7 @@ cd kids-planner-app
 .\gradlew assembleDebug
 ```
 
-### 5. Ejecutar la aplicación
+### 6. Ejecutar la aplicación
 
 **Opción A: Desde Android Studio**
 1. Abre el proyecto en Android Studio

@@ -1,6 +1,8 @@
 # Kids Planner
 
+Acceso al Código Fuente: El código completo del proyecto, incluyendo el historial de commits y versiones, se encuentra alojado públicamente en el siguiente repositorio de GitHub:
 
+🔗 https://github.com/Antjrobles/kids-planner-app
 
 **Aplicación Android para gestionar actividades extraescolares de manera familiar**
 

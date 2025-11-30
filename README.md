@@ -1,30 +1,140 @@
-# Kids Planner - Configuración para Ejecución
+# Kids Planner
+
+
+
+**Aplicación Android para gestionar actividades extraescolares de manera familiar**
+
+## Descripción
+
+Kids Planner es una aplicación móvil para Android desarrollada en Kotlin que ayuda a las familias a coordinar las actividades extraescolares de sus hijos. Centraliza horarios, ubicaciones, materiales necesarios y pagos asociados, incorporando recordatorios locales para evitar olvidos.
+
+**Características principales:**
+- 📅 Planificación semanal de actividades
+- 🎒 Checklist de materiales por actividad
+- 💰 Seguimiento de pagos y cuotas
+- 🔔 Recordatorios locales configurables
+- 👨‍👩‍👧‍👦 Gestión de múltiples hijos y familias
+
+## Tecnologías
+
+- **Frontend:** Kotlin, Jetpack Compose, Material 3
+- **Backend:** Supabase (PostgreSQL + REST API + Auth)
+- **Herramientas:** Android Studio, Git, Gradle
 
 ## Requisitos Previos
 
-- Android Studio
-- JDK 11
-- Android SDK con API 26+ (minSdk) y API 36 (targetSdk)
+- **JDK:** versión 11 o superior
+- **Android Studio:** última versión estable con soporte Jetpack Compose
+- **Android SDK:**
+  - `minSdk`: 26 (Android 8.0)
+  - `targetSdk` / `compileSdk`: 36
+- **Cuenta Supabase:** para backend y base de datos (gratis en [supabase.com](https://supabase.com))
 
-## Configuración del Proyecto
+## Instalación
 
-### 1. Archivo `local.properties`
+### 1. Clonar el repositorio
 
-**IMPORTANTE:** Por seguridad, el archivo `local.properties` NO lo he  incluido en esta entrega.
+```bash
+git clone https://github.com/antjrobles/kidsplanner.git
+cd kidsplanner
+```
 
-Se Deberá crear manualmente el archivo `local.properties` en la raíz del proyecto con el siguiente contenido:
+### 2. Configurar credenciales de Supabase
+
+Crear el archivo `kids-planner-app/local.properties` con tus credenciales de Supabase:
 
 ```properties
-# Ruta al Android SDK (Android Studio lo genera automáticamente al abrir el proyecto)
-sdk.dir=C\:\\Users\\TU_USUARIO\\AppData\\Local\\Android\\Sdk
-
-# Credenciales Supabase (solicitar al desarrollador)
 SUPABASE_URL=https://tu-proyecto.supabase.co
-SUPABASE_ANON_KEY=tu_anon_key_aqui
-SUPABASE_SERVICE_ROLE_KEY=tu_service_role_key_aqui
+SUPABASE_ANON_KEY=tu-anon-key
+SUPABASE_SERVICE_ROLE_KEY=tu-service-role-key
 ```
-SI NECESITAS LAS KEY SE LAS PUEDO PASAR
 
-### 2. Sincronizar Proyecto
+> **⚠️ IMPORTANTE:** Nunca subas este archivo al repositorio. Ya está incluido en `.gitignore`.
 
-### 3. Compilar y Ejecutar
+**Dónde encontrar las credenciales:**
+1. Accede a tu proyecto en [app.supabase.com](https://app.supabase.com)
+2. Ve a Settings → API
+3. Copia `URL`, `anon/public key` y `service_role key`
+
+### 3. Configurar la base de datos
+
+Ejecuta los scripts SQL en tu instancia de Supabase en el siguiente orden:
+
+```bash
+# En el SQL Editor de Supabase, ejecutar:
+database/SQL_01_drops.sql      # Limpia tablas existentes (opcional)
+database/SQL_02_tablas_base.sql    # Crea estructura base
+database/SQL_03_actividades.sql    # Tablas de actividades
+database/SQL_04_pagos_soporte.sql  # Tablas de pagos y soporte
+```
+
+O ejecuta el script completo:
+
+```bash
+database/SQL_supabase.sql  # Script completo con todas las tablas
+```
+
+### 4. Compilar el proyecto
+
+Navega al directorio de la app y compila:
+
+```bash
+cd kids-planner-app
+.\gradlew assembleDebug
+```
+
+### 5. Ejecutar la aplicación
+
+**Opción A: Desde Android Studio**
+1. Abre el proyecto en Android Studio
+2. Espera a que Gradle sincronice las dependencias
+3. Conecta un dispositivo Android o inicia un emulador
+4. Haz clic en "Run" (▶️)
+
+**Opción B: Desde línea de comandos**
+
+```bash
+# Instalar en dispositivo/emulador conectado
+.\gradlew installDebug
+```
+
+## Comandos Útiles
+
+Todos los comandos deben ejecutarse desde [kids-planner-app/](kids-planner-app/):
+
+```bash
+# Compilar APK de debug
+.\gradlew assembleDebug
+
+# Instalar en dispositivo
+.\gradlew installDebug
+
+# Ejecutar tests unitarios
+.\gradlew testDebugUnitTest
+
+# Ejecutar tests instrumentados (requiere dispositivo)
+.\gradlew connectedDebugAndroidTest
+
+# Ejecutar linter
+.\gradlew lint
+
+# Limpiar build
+.\gradlew clean
+```
+
+
+
+
+
+
+## Contribuir
+
+Este es un proyecto académico para el CFGS en Desarrollo de Aplicaciones Multiplataforma (DAM) - CIDEAD 2025-2026.
+
+**Autor:** Antonio José Robles Muñoz
+
+## Licencia
+
+Proyecto académico - CIDEAD 2025-2026
+
+---

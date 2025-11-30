@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Logo centrado y bajado hacia el medio -->
+    <item
+        android:gravity="center_horizontal"
+        android:drawable="@drawable/logov3"
+        android:width="85dp"
+        android:height="100dp"
+        android:bottom="35dp"
+        android:right="10dp" />
+</layer-list>

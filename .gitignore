@@ -1,0 +1,34 @@
+# Created by Gemini
+
+# Gradle
+.gradle/
+build/
+local.properties
+captures/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+
+# Android Studio / IntelliJ
+*.iml
+.idea/
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+.idea/dictionaries/
+.idea/misc.xml
+
+# Keystore files
+*.jks
+*.keystore
+
+# NDK
+.cxx/
+cmake-build-*/
+
+# Other
+*.apk
+*.aab
+.kotlin/

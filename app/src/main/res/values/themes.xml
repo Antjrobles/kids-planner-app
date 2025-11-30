@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Tema principal de tu app. No lo toques. -->
+    <style name="Theme.KidsPlanner" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <!-- TEMA DE LA SPLASH SCREEN CORREGIDO -->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+
+        <!-- PASO 1: Ponemos el fondo para que coincida con tu imagen. -->
+        <item name="windowSplashScreenBackground">#D7CFC4</item>
+
+        <!-- PASO 2: Añadimos el icono de splash sin máscara circular -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logov3</item>
+
+        <!-- PASO 3: Le decimos que después, cargue el tema normal de tu app. -->
+        <item name="postSplashScreenTheme">@style/Theme.KidsPlanner</item>
+    </style>
+
+</resources>
